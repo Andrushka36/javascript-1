@@ -26,46 +26,36 @@ function transformToObject(number) {
 // Задание № 2
 
 var basket = {
-	detail: [
-		['Молоко', 50, 1],
-		['Мясо', 300, 2.5],
-		['Сыр', 400, 0.3],
-		['Хлеб', 40, 1],
-		['Бананы', 60, 1.5]
-	],
+	detail: {
+		'молоко': [50, 1],
+		'мясо': [300, 2.5],
+		'сыр': [400, 0.3],
+		'хлеб': [40, 1],
+		'бананы': [60, 1.5]
+	},
 	countPrice: function() {
 		var products = this.detail, sum = 0;
-		for (var i = 0; i < products.length; i++) {
-			sum += products[i][1] * products[i][2];
-		};
+		for (var product in products) {
+			sum += products[product][0] * products[product][1];
+		}
 		return sum;
 	},
 	addProduct: function(name, price, count) {
 		var products = this.detail;
-		products.push([name, price, count]);
+		products[name] = [price, count];
 		return products;
 	},
-	findNumber: function(name) {
-		var products = this.detail;
-		for (var i = 0; i < products.length; i++) {
-			if (name.toUpperCase() == products[i]["0"].toUpperCase()) {
-				return i;
-			}
-		};
-		return -1;
-	},
-	removeProduct: function(name) {
-		var productNumber = this.findNumber(name), products = this.detail, count = arguments[1];
-		if (productNumber != -1) {
-			if (!count || count == products[productNumber][2]) {
-				products.splice(productNumber, 1);
+	removeProduct: function(nameProduct) {
+		var products = this.detail, count = arguments[1];
+		if (products[nameProduct]) {
+			if (!count || count == products[nameProduct][1]) {
+				delete products[nameProduct];
 			} else {
-				products[productNumber][2] -= count;
+				products[nameProduct][1] -= count;
 			};
 			return products;
-		} else {
-			return 'Данного товара нет в корзине';
-		}
+		};
+		return 'Данного товара нет в корзине';
 	}
 }
 
@@ -73,4 +63,4 @@ var basket = {
 
 //console.log(basket.removeProduct('мясо'));
 
-console.log(basket.countPrice());
+//console.log(basket.countPrice());
