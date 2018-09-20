@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Урок 5</title>
+		<style>
+			body {
+				font: 16px Georgia;
+			}
+			
+			.chess-board {
+				width: 724px;
+				margin: 0 auto 40px;
+				display: flex;
+				flex-wrap: wrap;
+				font-weight: bold;
+			}
+			
+			.chess-board__row, .chess-board__hozional-label {
+				display: flex;
+			}
+			
+			.chess-board__hozional-label {
+				flex-grow: 1;
+			}
+			
+			.chess-board__vertical-label {
+				display: flex;
+				flex-direction: column;
+			}
+		
+			.chess-board__cell {
+				width: 80px;
+				height: 80px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #ccc;
+				flex-grow: 1;
+			}
+			
+			.chess-board__hozional-label .chess-board__cell {
+				height: 40px;
+			}
+
+			.chess-board__vertical-label .chess-board__cell,
+			.chess-board__hozional-label .chess-board__cell:first-child, 
+			.chess-board__hozional-label .chess-board__cell:last-child {
+				width: 40px;
+			}
+			
+			.chess-board__cell--white {
+				background-color: #fff;
+			}
+			
+			.chess-board__vertical-label--left {
+				order: 1;
+			}
+			
+			.chess-board__game-field {
+				order: 2;
+				border: 2px solid #fff;
+			}
+			
+			.chess-board__vertical-label--right {
+				order: 3;
+			}
+			
+			.chess-board__hozional-label--bottom {
+				order: 4;
+			}
+			
+			#catalog, #cart {
+				display: table;
+				margin: 0 auto;
+			}
+			
+			table {
+				border-spacing: 0;
+				text-align: center;
+			}
+			
+			th, td {
+				padding: 10px 15px;
+				border-bottom: 1px solid #ddd;
+			}
+			
+			p {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chess-board"></div>
+		<div id="catalog"></div>
+		<div id="cart"></div>
+		<script src="scripts.js"></script>
+	</body>
+</html>
