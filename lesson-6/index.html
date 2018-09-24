@@ -1,0 +1,172 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Урок 6</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		
+			.gallery {
+				width: 600px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				position: relative;
+			}
+			
+			.gallery__big-image {
+				flex-basis: 100%;
+				text-align: center;
+			}
+			
+			.gallery__small-image {
+				flex-basis: 32%;
+				cursor: pointer;
+			}
+			
+			.gallery__buttons {
+				position: absolute;
+				top: calc(50% - 132px);
+				left: 10px;
+				right: 10px;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.gallery__button {
+				width: 52px;
+				height: 52px;
+				box-sizing: border-box;
+				border: 10px solid transparent;
+				border-radius: 50%;
+				background-color: rgba(255, 255, 255, 0.8);
+				background-image: url(images/gallery/buttons.png);
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				box-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
+				cursor: pointer;
+			}
+			
+			.gallery__button:hover {
+				transform: scale(1.1);
+			}
+			
+			.gallery__button-prev {
+				background-position: 0 0;
+			}
+			
+			.gallery__button-next {
+				background-position: -32px 0;
+			}
+			
+			img {
+				max-width: 100%;
+			}
+			
+			.catalog {
+				width: 840px;
+				margin: 0 auto;
+				font-family: Georgia;
+				color: #333;
+			}
+			
+			.catalog:not(:first-child) {
+				margin-top: 50px;
+				margin-bottom: 40px;
+			}
+			
+			.catalog__products {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.product {
+				flex-basis: 250px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			
+			.product__title, .product__photo {
+				flex-basis: 100%;
+				margin-bottom: 10px;
+			}
+			
+			.product__title {
+				font-size: 20px;
+			}
+			
+			.product__add {
+				cursor: pointer;
+			}
+			
+			table#cart {
+				border-spacing: 0;
+				text-align: center;
+				margin: 20px auto 0;
+			}
+			
+			th, td {
+				padding: 10px 15px;
+				border-bottom: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="gallery">
+			<div class="gallery__big-image"></div>
+			<div class="gallery__small-image">
+				<img src="images/gallery/1.jpg" alt="text">
+			</div>
+			<div class="gallery__small-image">
+				<img src="images/gallery/2.jpg" alt="text">
+			</div>
+			<div class="gallery__small-image">
+				<img src="images/gallery/3.jpg" alt="text">
+			</div>
+			<div class="gallery__buttons">
+				<div class="gallery__button gallery__button-prev"></div>
+				<div class="gallery__button gallery__button-next"></div>
+			</div>
+		</div>
+		<div class="catalog" id="catalog">
+			<div class="catalog__products">
+				<div class="product" id="product-1">
+					<h3 class="product__title">Творог</h3>
+					<div class="product__photo">
+						<img src="images/catalog/1.jpg" alt="text">
+					</div>
+					<div class="product__price">
+						Цена: 75 рублей
+					</div>
+					<div class="product__add">В корзину</div>
+				</div>
+				<div class="product" id="product-2">
+					<h3 class="product__title">Молоко</h3>
+					<div class="product__photo">
+						<img src="images/catalog/2.jpg" alt="text">
+					</div>
+					<div class="product__price">
+						Цена: 55 рублей
+					</div>
+					<div class="product__add">В корзину</div>
+				</div>
+				<div class="product" id="product-3">
+					<h3 class="product__title">Кефир</h3>
+					<div class="product__photo">
+						<img src="images/catalog/3.jpg" alt="text">
+					</div>
+					<div class="product__price">
+						Цена: 54 рубля
+					</div>
+					<div class="product__add">В корзину</div>
+				</div>
+			</div>
+		</div>
+		<script src="scripts.js"></script>
+	</body>
+</html>
